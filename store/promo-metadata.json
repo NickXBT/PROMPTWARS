@@ -1,0 +1,19 @@
+{
+  "name": "Phishing Shield AI",
+  "short_name": "Phishing Shield",
+  "version": "1.0.0",
+  "summary": "Real-time AI-powered phishing and deception detection. Detect the deception, understand the risk, browse with confidence.",
+  "category": "productivity",
+  "subcategory": "security",
+  "default_locale": "en",
+  "developer": {
+    "website": "https://nickxbt.github.io/phishing-shield",
+    "privacy_policy": "https://github.com/NickXBT/NickXBT/blob/main/phishing-shield/store/privacy-policy.md"
+  },
+  "package_zip": "dist/phishing-shield-ai-v1.0.0.zip",
+  "icons": {
+    "16": "store/icon-16.png",
+    "48": "store/icon-48.png",
+    "128": "store/icon-128.png"
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Shield AI - Forensic Inspection</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="panel-container">
+    <header class="panel-header">
+      <div class="title-wrap">
+        <h2>🛡️ Forensic Security Feed</h2>
+        <p class="subtitle">Deep signal inspection & history</p>
+      </div>
+      <button id="clearHistoryBtn" class="clear-btn">Clear History</button>
+    </header>
+
+    <!-- Scan History List -->
+    <div id="historyList" class="history-list">
+      <div class="loading-state">Loading scan history...</div>
+    </div>
+  </div>
+
+  <script type="module" src="./sidepanel.ts"></script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Shield AI — Think Before You Click</title>
+  <meta name="description" content="AI-powered browser security detecting deceptive links, fake logins, and social engineering attacks before you share information.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-link">
+        <svg class="brand-icon-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L4 7V15C4 22.4 9.1 29.2 16 31C22.9 29.2 28 22.4 28 15V7L16 2Z" fill="#12131A" stroke="#7C4DFF" stroke-width="2"/>
+          <path d="M16 8L8 11.5V17.5C8 21.6 11.4 25.4 16 26.8C20.6 25.4 24 21.6 24 17.5V11.5L16 8Z" fill="url(#brandGrad)"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="8" y1="8" x2="24" y2="26.8" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#7C4DFF"/>
+              <stop offset="1" stop-color="#A78BFA"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-name">Phishing Shield AI</span>
+        <span class="brand-tag">v1.0</span>
+      </a>
+
+      <div id="navMenu" class="nav-menu">
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#live-demo" class="nav-link">Live Demo</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#extension" class="nav-link">Extension</a>
+        <a href="#privacy" class="nav-link">Privacy</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary" data-cta="add-to-chrome">Add to Chrome</button>
+        <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow-wrap">
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              <span>STATUS: AI ACTIVE • VERIFIED PROTECTION</span>
+            </div>
+          </div>
+          <h1 class="hero-title">Think before you click.</h1>
+          <p class="hero-desc">
+            Spot suspicious links, expose phishing tactics, and understand the risk before you share your information.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-lg" data-cta="add-to-chrome">Add to Chrome</button>
+            <a href="/phishing-shield-ai-v1.0.0.zip" download class="btn btn-secondary btn-lg" style="border-color:rgba(124,77,255,0.4); background:rgba(124,77,255,0.12); color:#C8B8FF;">📦 Download Extension (.ZIP)</a>
+            <a href="#live-demo" class="btn btn-secondary btn-lg">Try Live Demo</a>
+          </div>
+          <div class="hero-trust">
+            <span>✓ Clear explanations</span>
+            <span>•</span>
+            <span>✓ Privacy-conscious analysis</span>
+            <span>•</span>
+            <span>✓ Safer browsing</span>
+          </div>
+        </div>
+
+        <!-- 3D Mascot Canvas -->
+        <div class="mascot-container">
+          <div id="mascotCanvasContainer" class="mascot-canvas-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Trust Strip -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">💬</div>
+          <div>
+            <div class="trust-title">Plain-Language Explanations</div>
+            <div class="trust-desc">Actionable 2-sentence guidance for non-technical users without security jargon.</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">⚡</div>
+          <div>
+            <div class="trust-title">Sub-15ms Heuristic Speed</div>
+            <div class="trust-desc">Deterministic in-browser algorithms analyze links and forms instantaneously.</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">🔒</div>
+          <div>
+            <div class="trust-title">Privacy-Conscious Design</div>
+            <div class="trust-desc">Strict local PII redaction. Passwords and credentials never leave your browser.</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">🎯</div>
+          <div>
+            <div class="trust-title">Transparent Risk Scoring</div>
+            <div class="trust-desc">Evidence-grounded 0–100 risk scale. Non-negotiable overrides for confirmed threats.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Web Demo Section -->
+  <section id="live-demo" class="demo-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Interactive Threat Inspection</div>
+        <h2 class="section-title">Test our detection engine live.</h2>
+        <p class="section-subtitle">Select a simulated scenario or input any URL to observe the multi-stage security analysis in real time.</p>
+      </div>
+
+      <div class="demo-wrapper">
+        <div class="demo-presets">
+          <span class="presets-label">Test Scenarios:</span>
+          <button class="demo-preset-btn active" data-preset="bank">1. Chase Bank Impersonation</button>
+          <button class="demo-preset-btn" data-preset="delivery">2. Delivery Customs Fee Scam</button>
+          <button class="demo-preset-btn" data-preset="otp">3. Microsoft 365 2FA Interception</button>
+          <button class="demo-preset-btn" data-preset="legitimate">4. Legitimate Engineering Blog</button>
+        </div>
+
+        <div class="demo-layout">
+          <!-- Input Form -->
+          <div class="demo-input-card">
+            <div>
+              <label for="demoUrlInput" class="form-label">Target URL or Hostname</label>
+              <input type="text" id="demoUrlInput" class="input-text" placeholder="https://example.com/signin">
+            </div>
+
+            <div>
+              <label for="demoTextInput" class="form-label">Page Excerpt or Email Message Content</label>
+              <textarea id="demoTextInput" class="input-textarea" placeholder="Paste suspicious message or webpage text..."></textarea>
+            </div>
+
+            <button id="demoAnalyzeBtn" class="btn btn-primary btn-lg">
+              <span>Inspect Security Risk</span>
+            </button>
+          </div>
+
+          <!-- Real-Time Analysis Output -->
+          <div>
+            <div id="demoLoadingState" class="demo-result-panel hidden">
+              <div style="text-align:center; padding: 60px 0;">
+                <div style="font-size:24px; color:#A78BFA; margin-bottom:12px;">🛡️ Running Multi-Stage Inspection...</div>
+                <p style="color:#A3A3B2; font-size:13px;">Evaluating typosquatting, homoglyphs, credential handlers, and link targets</p>
+              </div>
+            </div>
+
+            <div id="demoEmptyState" class="demo-result-panel">
+              <div style="text-align:center; padding: 60px 0; color:#777787;">
+                Select a scenario or enter content above to see live analysis findings.
+              </div>
+            </div>
+
+            <div id="demoResultsCard" class="demo-result-panel hidden">
+              <div class="result-top">
+                <div class="score-badge-wrap">
+                  <div id="demoScoreDial" class="score-circle">
+                    <span id="demoScoreValue">--</span>
+                  </div>
+                  <div>
+                    <div id="demoVerdictBadge" class="verdict-badge">Scanning</div>
+                    <div id="demoMetricsText" class="metrics-text">-- ms latency</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="explanation-banner">
+                <p id="demoExplanation">--</p>
+              </div>
+
+              <div class="action-recommendation">
+                <strong style="display:block; margin-bottom:2px;">Recommended Action:</strong>
+                <p id="demoAction">--</p>
+              </div>
+
+              <div>
+                <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:#A3A3B2; margin-bottom:8px;">Observed Evidence</div>
+                <div id="demoReasonsList" class="demo-reasons-container"></div>
+              </div>
+
+              <div id="demoSuspiciousUrlsSection" class="hidden">
+                <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:#A3A3B2; margin-bottom:4px;">Deceptive Links Discovered</div>
+                <div id="demoSuspiciousUrlsList"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">How It Works</div>
+        <h2 class="section-title">Three stages of intelligent defense.</h2>
+        <p class="section-subtitle">How Phishing Shield AI evaluates threats transparently without disrupting your normal browsing.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">Stage 01</span>
+          <h3 class="step-title">Inspect Structure</h3>
+          <p class="step-desc">
+            When you open a webpage or scan a message, the content script safely extracts the domain, form action targets, input fields, and embedded anchor destinations without modifying page state.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">Stage 02</span>
+          <h3 class="step-title">Analyze Threat Signals</h3>
+          <p class="step-desc">
+            Deterministic local heuristics evaluate typosquatting, Cyrillic homoglyphs, and link-text mismatches. On-device Gemini Nano analyzes social engineering patterns while URL reputation checks verified databases.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">Stage 03</span>
+          <h3 class="step-title">Explain & Advise</h3>
+          <p class="step-desc">
+            The evidence scoring engine aggregates findings into a calibrated 0–100 score, displays a non-intrusive warning on dangerous pages, outlines deceptive links, and provides one clear actionable instruction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Implemented Capabilities</div>
+        <h2 class="section-title">Built for precision. Grounded in evidence.</h2>
+        <p class="section-subtitle">Every feature below is implemented and tested in the codebase today.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🔍</div>
+          <h3 class="feature-title">Lookalike-Domain Detection</h3>
+          <p class="feature-desc">Levenshtein edit distance, brand keyword squatting, and subdomain masquerading detection that flags domains attempting to impersonate trusted services.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🌐</div>
+          <h3 class="feature-title">Unicode & Homoglyph Engine</h3>
+          <p class="feature-desc">Unmasks Cyrillic, Greek, and Punycode characters designed to fool the human eye into confusing look-alike characters with Latin letters.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🔗</div>
+          <h3 class="feature-title">Deceptive Link Mismatch Flagging</h3>
+          <p class="feature-desc">Pinpoints links where visible text displays a trusted domain (e.g. chase.com) while the underlying anchor routes to an attacker's server.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🤖</div>
+          <h3 class="feature-title">Chrome Built-in AI (Gemini Nano)</h3>
+          <p class="feature-desc">Runs prompt inference on-device using Chrome's built-in AI Prompt API, evaluating social engineering cues locally with zero network round-trip.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🛡️</div>
+          <h3 class="feature-title">Shadow DOM Warning Banner</h3>
+          <p class="feature-desc">High-risk pages trigger an isolated warning banner injected via Shadow DOM to prevent website CSS conflicts, offering one-click evidence review.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🔐</div>
+          <h3 class="feature-title">Privacy PII Redaction</h3>
+          <p class="feature-desc">Pre-redacts emails, phone numbers, Luhn-validated credit cards, and auth tokens locally before any optional external lookup occurs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extension Showcase Section -->
+  <section id="extension" class="extension-section">
+    <div class="container">
+      <div class="extension-grid">
+        <div>
+          <div class="section-eyebrow">Chrome Extension</div>
+          <h2 class="section-title">Real-time protection directly in your browser.</h2>
+          <p class="section-subtitle" style="margin-bottom: 24px;">
+            The Phishing Shield AI extension runs unobtrusively in your Chrome toolbar. It analyzes active pages in under 15ms and warns you before credentials are compromised.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:14px; margin-bottom: 30px;">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <span style="color:#10B981; font-weight:bold;">1.</span>
+              <div style="font-size:14px; color:#A3A3B2;"><strong style="color:#FFF;">Build the extension:</strong> Run <code>npm run build</code> to produce the ready-to-load <code>dist/</code> folder.</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <span style="color:#10B981; font-weight:bold;">2.</span>
+              <div style="font-size:14px; color:#A3A3B2;"><strong style="color:#FFF;">Load in Chrome:</strong> Open <code>chrome://extensions</code>, enable <strong>Developer mode</strong>, and click <strong>Load unpacked</strong>.</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <span style="color:#10B981; font-weight:bold;">3.</span>
+              <div style="font-size:14px; color:#A3A3B2;"><strong style="color:#FFF;">Browse safely:</strong> The extension automatically assesses active tabs and displays risk badges.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:28px;">
+            <button class="btn btn-primary btn-lg" data-cta="add-to-chrome">Add to Chrome</button>
+            <a href="/phishing-shield-ai-v1.0.0.zip" download class="btn btn-secondary btn-lg" style="border-color:rgba(124,77,255,0.4); background:rgba(124,77,255,0.12); color:#C8B8FF;">📦 Download Extension (.ZIP)</a>
+            <a href="#live-demo" class="btn btn-secondary btn-lg">Explore Live Demo</a>
+          </div>
+        </div>
+
+        <!-- Realistic Extension Popup Preview -->
+        <div>
+          <div class="extension-preview-card">
+            <div class="popup-sim-header">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:20px;">🛡️</span>
+                <span style="font-weight:700; font-size:14px;">Phishing Shield AI</span>
+              </div>
+              <span style="font-size:11px; color:#94A3B8;">activeTab</span>
+            </div>
+
+            <div style="background:rgba(15,23,42,0.8); border:1px solid #334155; border-radius:6px; padding:6px 10px; font-size:11px; margin-bottom:12px; font-family:monospace; color:#38BDF8;">
+              paypa1-verify.xyz/signin
+            </div>
+
+            <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+              <div style="width:60px; height:60px; border-radius:50%; border:3px solid #EF4444; background:rgba(239,68,68,0.15); display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:#EF4444;">
+                90
+              </div>
+              <div>
+                <span style="background:rgba(239,68,68,0.2); color:#F87171; border:1px solid rgba(239,68,68,0.4); padding:2px 8px; border-radius:12px; font-size:12px; font-weight:700;">DANGEROUS</span>
+                <div style="font-size:11px; color:#94A3B8; margin-top:4px;">99% confidence • 11ms latency</div>
+              </div>
+            </div>
+
+            <div style="background:rgba(0,0,0,0.3); border-left:3px solid #38BDF8; padding:8px 10px; border-radius:0 4px 4px 0; font-size:11px; line-height:1.4; color:#E2E8F0; margin-bottom:10px;">
+              Warning: The address "paypa1-verify.xyz" is pretending to be PayPal using a deceptive look-alike domain. Entering passwords here sends them directly to cybercriminals.
+            </div>
+
+            <div style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); padding:8px 10px; border-radius:4px; font-size:11px; color:#FCA5A5; margin-bottom:14px;">
+              <strong>Action:</strong> Close this tab immediately. Navigate using the verified PayPal app.
+            </div>
+
+            <div style="display:flex; gap:8px;">
+              <button style="flex:1; background:#334155; color:#FFF; border:none; padding:6px; border-radius:4px; font-size:11px; font-weight:600;">Analyze Again</button>
+              <button style="flex:1; background:rgba(239,68,68,0.25); color:#F87171; border:1px solid rgba(239,68,68,0.4); padding:6px; border-radius:4px; font-size:11px; font-weight:600;">Report Threat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Section -->
+  <section id="privacy" class="how-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Privacy & Trust</div>
+        <h2 class="section-title">Your data stays yours.</h2>
+        <p class="section-subtitle">We believe security tools should protect privacy, not compromise it.</p>
+      </div>
+
+      <div style="max-width:840px; margin:0 auto; background:var(--bg-surface-elevated); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+          <div>
+            <h4 style="color:#10B981; font-size:15px; margin-bottom:8px;">✓ Stays Purely On-Device</h4>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; font-size:13px; color:#A3A3B2;">
+              <li>• Full webpage HTML and credentials</li>
+              <li>• User passwords, credit card inputs, and OTPs</li>
+              <li>• Local heuristic evaluations (under 15ms)</li>
+              <li>• On-device Gemini Nano Prompt API queries</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color:#F59E0B; font-size:15px; margin-bottom:8px;">⚠️ Optional External Lookups</h4>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; font-size:13px; color:#A3A3B2;">
+              <li>• URL reputation queries (stripped of sensitive query tokens)</li>
+              <li>• Cloud Gemini for ambiguous scores (with strict local PII redaction)</li>
+              <li>• Completely disabled when On-Device-Only Mode is enabled</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--border-subtle); padding-top:18px; font-size:13px; color:#777787; text-align:center;">
+          Read our comprehensive threat model and data matrix in <a href="docs/PRIVACY.md" style="color:#A78BFA; text-decoration:underline;">docs/PRIVACY.md</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Frequently Asked Questions</div>
+        <h2 class="section-title">Clear answers to common questions.</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does Phishing Shield AI detect threats?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Phishing Shield AI operates a multi-stage defense pipeline. It starts with deterministic local heuristics checking for typosquatting, Cyrillic homoglyphs, deceptive link text mismatches, and credential harvesting forms. It then combines these signals with Chrome's built-in Gemini Nano model and Google Web Risk reputation databases to calculate an evidence-grounded risk score.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does a "Safe-looking" verdict guarantee that a site is 100% safe?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            No. In cybersecurity, the absence of known threat indicators does not guarantee safety. We explicitly label low-risk pages as "Safe-looking" rather than "Safe", and always remind users to verify web addresses before entering passwords or payment details.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does the extension send my passwords or history to the cloud?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Never. Our local PII redaction engine ensures passwords, OTPs, session tokens, and credit card numbers are stripped before any external communication. In addition, you can toggle "On-Device-Only Mode" in the extension settings to guarantee zero network calls leave your browser.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I try the detection engine without installing the extension?</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! Scroll up to our <a href="#live-demo" style="color:#A78BFA; text-decoration:underline;">Live Demo section</a> above. The web demo runs the exact same detection engine in your browser, allowing you to test sample banking, delivery, and account takeover scenarios immediately.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:22px;">🛡️</span>
+            <span style="font-weight:700; color:#FFF; font-size:16px;">Phishing Shield AI</span>
+          </div>
+          <p>Detect the deception. Understand the risk. Browse with confidence.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#live-demo">Live Threat Demo</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#extension">Chrome Extension</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Documentation</h4>
+          <ul class="footer-links">
+            <li><a href="docs/DEMO.md">Demo Script</a></li>
+            <li><a href="docs/PRIVACY.md">Privacy Architecture</a></li>
+            <li><a href="docs/architecture.mmd">Architecture Diagram</a></li>
+            <li><a href="README.md">Setup Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Hackathon</h4>
+          <ul class="footer-links">
+            <li><a href="LICENSE">Apache 2.0 License</a></li>
+            <li><a href="https://github.com/NickXBT/NickXBT">Repository</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Phishing Shield AI Team. Built for the Google AI Hackathon.</div>
+        <div style="color:#777787;">Manifest V3 • Built-in AI • Web Risk • Vitest</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Installation Modal (Used for Guided Developer Mode before public Chrome Web Store index) -->
+  <div id="installModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:24px;">🛡️</span>
+          <div>
+            <h3 style="font-size:18px; margin:0; font-weight:700;">Add Phishing Shield AI to Chrome</h3>
+            <span style="font-size:11px; color:#A78BFA; background:rgba(124,77,255,0.15); padding:2px 8px; border-radius:12px; font-weight:600;">Chrome Web Store Submission Prepared</span>
+          </div>
+        </div>
+        <button id="closeInstallModal" class="modal-close" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size:14px; color:#A3A3B2; line-height:1.5; margin-bottom:16px;">
+          The extension package is built and ready for Chrome Web Store review. To test the live extension right now in Google Chrome:
+        </p>
+
+        <div style="margin-bottom:20px; text-align:center;">
+          <a href="/phishing-shield-ai-v1.0.0.zip" download class="btn btn-primary btn-lg" style="width:100%; box-sizing:border-box;">
+            ⬇️ Download Extension Package (.ZIP)
+          </a>
+        </div>
+
+        <div class="install-steps">
+          <div class="step-row">
+            <span class="step-badge">1</span>
+            <div>
+              <strong>Open Extensions Page</strong>
+              <p>In Google Chrome, navigate to <code style="color:#A78BFA; background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:4px;">chrome://extensions</code> in a new tab.</p>
+            </div>
+          </div>
+
+          <div class="step-row">
+            <span class="step-badge">2</span>
+            <div>
+              <strong>Enable Developer Mode</strong>
+              <p>Toggle the <strong>Developer mode</strong> switch in the top-right corner of the extensions page.</p>
+            </div>
+          </div>
+
+          <div class="step-row">
+            <span class="step-badge">3</span>
+            <div>
+              <strong>Click "Load unpacked"</strong>
+              <p>Select the extension build folder on your machine:</p>
+              <div style="background:#0B0B11; border:1px solid rgba(255,255,255,0.1); padding:8px 12px; border-radius:6px; font-family:monospace; font-size:12px; color:#38BDF8; word-break:break-all; margin-top:6px;">
+                C:\Users\Nikhil\.gemini\antigravity\scratch\phishing-shield\dist
+              </div>
+              <p style="margin-top:6px; font-size:12px; color:#777787;">
+                Or use the packaged archive: <code style="color:#FFF;">dist/phishing-shield-ai-v1.0.0.zip</code>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:6px; padding:12px; font-size:13px; color:#D1FAE5; margin-top:16px;">
+          <strong>Once Published:</strong> When Google approves the Chrome Web Store listing, clicking <em>Add to Chrome</em> will immediately open the official store page for 1-click installation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

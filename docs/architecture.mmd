@@ -1,0 +1,37 @@
+flowchart TD
+  subgraph Browser["Chrome Browser (Client Side)"]
+    DOM["Webpage DOM / Gmail"] --> CS["Content Script (content-script.js)"]
+    CS -->|"Extracts DOM Context & Links"| SW["Service Worker (service-worker.js)"]
+    
+    subgraph Pipeline["Phishing Shield AI Pipeline"]
+      StageA["Stage A: Local Heuristics\n(Typosquatting, Homoglyphs, Forms, Urgency)"]
+      StageB["Stage B: URL Reputation\n(Local TTL Cache & Web Risk)"]
+      StageC["Stage C: On-Device AI\n(Chrome Prompt API / Gemini Nano)"]
+      StageD["Stage D: Cloud Gemini\n(Ambiguous Scores 30-65 with Redaction)"]
+      StageE["Stage E: Evidence Scoring Engine\n(Threat Overrides & Action Generator)"]
+      
+      StageA --> StageB --> StageC --> StageD --> StageE
+    end
+
+    SW --> Pipeline
+    Pipeline -->|"Analysis Result"| SW
+    
+    SW -->|"Update Badge (Score & Color)"| Action["Chrome Toolbar Action"]
+    SW -->|"Inject Warning Banner"| WB["Shadow DOM Banner (warning-banner.ts)"]
+    SW -->|"Highlight Deceptive Links"| CS
+    SW -->|"Render Findings & Recommendations"| Popup["Popup UI (popup.html)"]
+    SW -->|"Forensic History & Telemetry"| SidePanel["Side Panel (sidepanel.html)"]
+  end
+
+  subgraph Cloud["External Services (Optional & Privacy-Guarded)"]
+    GWR["Google Web Risk API\n(uris:search)"]
+    GEMINI["Google Gemini Cloud API\n(1.5 Flash)"]
+    BACKEND["Cloud Run Proxy Backend\n(/api/webrisk, /api/gemini)"]
+    FIREBASE["Firebase Firestore\n(Community Reports)"]
+  end
+
+  StageB -.->|"Sanitized URL Query"| GWR
+  StageB -.->|"Proxy Query"| BACKEND
+  StageD -.->|"PII-Redacted Excerpt"| GEMINI
+  StageD -.->|"Proxy Request"| BACKEND
+  Popup -.->|"Report Phishing Domain"| FIREBASE

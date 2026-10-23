@@ -1,0 +1,39 @@
+{
+  "name": "phishing-shield-ai",
+  "version": "1.0.0",
+  "description": "Chrome Manifest V3 extension providing real-time, privacy-first phishing and social engineering detection powered by deterministic heuristics, Chrome Built-in AI (Gemini Nano), and Google Web Risk.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "package:extension": "node scripts/generate-icons.js && npm run build && node scripts/package-extension.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "serve:test-pages": "node test-pages/serve.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "phishing-detection",
+    "manifest-v3",
+    "gemini",
+    "gemini-nano",
+    "web-risk",
+    "security"
+  ],
+  "author": "Phishing Shield AI Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/chrome": "^0.0.280",
+    "@types/node": "^22.10.2",
+    "archiver": "^8.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@types/three": "^0.186.0",
+    "three": "^0.186.1"
+  }
+}

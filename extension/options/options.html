@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Shield AI - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="settings-container">
+    <header class="settings-header">
+      <div class="brand">
+        <span class="icon">🛡️</span>
+        <div>
+          <h1>Phishing Shield AI Settings</h1>
+          <p class="subtitle">Configure detection methods, privacy boundaries, and credentials</p>
+        </div>
+      </div>
+    </header>
+
+    <form id="settingsForm">
+      <!-- Privacy & On-Device Security -->
+      <section class="settings-section">
+        <h2>🔒 Privacy & On-Device Protection</h2>
+        
+        <div class="form-group toggle-group">
+          <label class="toggle-label" for="onDeviceOnlyMode">
+            <span class="label-title">On-Device-Only Mode</span>
+            <span class="label-desc">Strictly confines all inspection to local heuristics and Gemini Nano. Never transmits URLs or page content to external servers.</span>
+          </label>
+          <input type="checkbox" id="onDeviceOnlyMode" class="toggle-checkbox">
+        </div>
+
+        <div class="form-group toggle-group">
+          <label class="toggle-label" for="enableGeminiNano">
+            <span class="label-title">Chrome Built-in AI (Gemini Nano)</span>
+            <span class="label-desc">Uses Chrome's on-device Prompt API for local social engineering pattern evaluation when available.</span>
+          </label>
+          <input type="checkbox" id="enableGeminiNano" class="toggle-checkbox">
+        </div>
+      </section>
+
+      <!-- Threat Intelligence & URL Reputation -->
+      <section class="settings-section">
+        <h2>🌐 Threat Intelligence & Reputation</h2>
+
+        <div class="form-group toggle-group">
+          <label class="toggle-label" for="enableWebRisk">
+            <span class="label-title">Google Web Risk / Threat Intelligence</span>
+            <span class="label-desc">Checks URLs against Google Web Risk API for confirmed malware and social engineering threats.</span>
+          </label>
+          <input type="checkbox" id="enableWebRisk" class="toggle-checkbox">
+        </div>
+
+        <div class="form-group">
+          <label for="webRiskApiKey">Google Web Risk API Key (Optional)</label>
+          <input type="password" id="webRiskApiKey" placeholder="AIzaSy..." class="text-input">
+          <span class="input-hint">Leave blank to use local heuristics or backend proxy.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="backendProxyUrl">Backend Proxy URL</label>
+          <input type="text" id="backendProxyUrl" placeholder="http://localhost:8080" class="text-input">
+          <span class="input-hint">Cloud Run or local proxy server protecting API keys from client-side exposure.</span>
+        </div>
+      </section>
+
+      <!-- Cloud AI Fallback -->
+      <section class="settings-section">
+        <h2>✨ Optional Cloud AI Analysis</h2>
+        <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:6px; padding:10px 14px; font-size:12px; color:#D1FAE5; margin-bottom:14px;">
+          <strong>Zero API Keys Needed for Core Detection:</strong> Local heuristics and Chrome Built-in AI (Gemini Nano) run 100% locally and free without requiring any API keys. Cloud Gemini is strictly an optional fallback for ambiguous scores.
+        </div>
+
+        <div class="form-group toggle-group">
+          <label class="toggle-label" for="enableCloudGemini">
+            <span class="label-title">Cloud Gemini Analysis (Ambiguous Cases Only)</span>
+            <span class="label-desc">Only queries Gemini when local score falls within ambiguous range (30-65). Pre-redacts all emails, phones, and credentials locally.</span>
+          </label>
+          <input type="checkbox" id="enableCloudGemini" class="toggle-checkbox">
+        </div>
+
+        <div class="form-group">
+          <label for="geminiApiKey">Google Gemini API Key (Optional)</label>
+          <input type="password" id="geminiApiKey" placeholder="AIzaSy..." class="text-input">
+        </div>
+      </section>
+
+      <!-- Gmail & Community Reporting -->
+      <section class="settings-section">
+        <h2>📬 Integrations & Community Protection</h2>
+
+        <div class="form-group toggle-group">
+          <label class="toggle-label" for="enableGmailScanning">
+            <span class="label-title">Gmail Integration</span>
+            <span class="label-desc">Enables targeted scanning of user-selected emails inside Gmail web interface.</span>
+          </label>
+          <input type="checkbox" id="enableGmailScanning" class="toggle-checkbox">
+        </div>
+
+        <div class="form-group toggle-group">
+          <label class="toggle-label" for="enableCommunityReporting">
+            <span class="label-title">Community Threat Reporting</span>
+            <span class="label-desc">Allows submitting confirmed phishing domains to decentralized community defense feeds.</span>
+          </label>
+          <input type="checkbox" id="enableCommunityReporting" class="toggle-checkbox">
+        </div>
+      </section>
+
+      <div class="actions-row">
+        <button type="submit" class="btn btn-primary">Save Settings</button>
+        <span id="saveStatus" class="save-status"></span>
+      </div>
+    </form>
+  </div>
+
+  <script type="module" src="./options.ts"></script>
+</body>
+</html>

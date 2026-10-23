@@ -1,0 +1,38 @@
+Phishing Shield AI — Real-Time Browser Protection
+Tagline: Detect the deception. Understand the risk. Browse with confidence.
+
+OVERVIEW
+Phishing Shield AI is a lightweight, privacy-conscious Chrome extension that protects you against phishing emails, deceptive look-alike domains, credential harvesting login pages, and social engineering attacks before you share sensitive data.
+
+Unlike legacy security tools that send your entire browsing history to centralized cloud servers, Phishing Shield AI operates a high-speed local defense pipeline. It analyzes active pages in under 15ms directly on your device using deterministic heuristics and Chrome's Built-in AI (Gemini Nano).
+
+KEY FEATURES
+• Look-Alike & Typosquatting Detection: Identifies deceptive domains that mimic major brands (e.g. PayPal, Chase, Microsoft, Google) using Levenshtein distance, keyword squatting, and subdomain masquerading.
+• Unicode & Homoglyph Protection: Unmasks Cyrillic and Greek characters visually identical to Latin letters used to trick human eyes.
+• Deceptive Link Mismatch Warning: Flags links where the visible anchor text displays a trusted service while the actual destination routes to a third-party server.
+• Credential Harvesting Shield: Detects unexpected password inputs, one-time-password (OTP/2FA) interception fields, and credit card collection forms on unverified origins or plain HTTP.
+• Psychological Urgency Detection: Evaluates high-pressure language ("account suspended", "24 hours to verify", "unpaid customs fee") common in social engineering scams.
+• Isolated Shadow DOM Warning Banner: Automatically injects a high-visibility warning banner on dangerous websites without breaking site layout or normal functionality.
+• Non-Destructive Link Outlining: Outlines suspicious embedded links with subtle red dashed borders and clear tooltip explanations.
+• Plain-Language Explanations: Translates complex security cues into 2 clear sentences with one recommended action for non-technical users.
+• Chrome Built-in AI (Gemini Nano): Uses the Chrome Prompt API for local social engineering pattern evaluation when supported.
+• Privacy-Preserving PII Redaction: Automatically strips email addresses, phone numbers, credit card numbers, and session tokens before any optional external lookup.
+
+HOW TO USE
+1. Click "Add to Chrome" to install Phishing Shield AI.
+2. The extension automatically evaluates the active tab as you browse.
+3. The toolbar icon displays a live risk score (0 to 100) and color-coded status badge:
+   - Green (0–29): Safe-looking (no threat indicators detected).
+   - Amber (30–59): Suspicious (caution advised, check domain).
+   - Red (60–100): Dangerous (active threat or impersonation detected).
+4. Click the icon at any time to inspect the top reasons, suspicious links, and recommended actions.
+
+PERMISSIONS JUSTIFICATION
+• activeTab: Inspects the DOM structure and links of the active website only when opened or navigating.
+• storage: Persists your preferences and local scan history in chrome.storage.local without transmitting data.
+• scripting: Injects the warning banner on high-risk pages.
+• sidePanel: Displays the detailed forensic inspection feed alongside your browsing window.
+• Host Permissions (<all_urls>): Necessary to analyze URLs across arbitrary websites to identify zero-day phishing destinations.
+
+PRIVACY COMMITMENT
+Phishing Shield AI does not log your browsing history, sell user data, or store passwords. An optional "On-Device-Only Mode" is available in Settings to guarantee zero external network requests.

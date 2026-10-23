@@ -1,0 +1,8 @@
+{
+  "apiKey": "AIzaSy_EXAMPLE_KEY_ONLY",
+  "authDomain": "phishing-shield-ai.firebaseapp.com",
+  "projectId": "phishing-shield-ai",
+  "storageBucket": "phishing-shield-ai.appspot.com",
+  "messagingSenderId": "123456789012",
+  "appId": "1:123456789012:web:abcdef123456"
+}
